@@ -46,6 +46,9 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.deepPurple
+      ),
       home: Scaffold(
           appBar: AppBar(
             title: Text('VideoChat Peer to Peer'),

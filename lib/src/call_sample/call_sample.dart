@@ -127,19 +127,21 @@ class _CallSampleState extends State<CallSample> {
     return ListBody(children: <Widget>[
       ListTile(
         title: Text(self
-            ? peer['name'] + '[Your self]'
-            : peer['name'] + '[' + peer['user_agent'] + ']'),
+            ? peer['name'] + ' [Este dispositivo]'
+            : peer['name']),
         onTap: null,
         trailing: SizedBox(
             width: 100.0,
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
+                  if (!self)
                   IconButton(
                     icon: const Icon(Icons.videocam),
                     onPressed: () => _invitePeer(context, peer['id'], false),
                     tooltip: 'Video llamada',
                   ),
+                  if (!self)
                   IconButton(
                     icon: const Icon(Icons.screen_share),
                     onPressed: () => _invitePeer(context, peer['id'], true),
