@@ -48,7 +48,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(
-            title: Text('Flutter-WebRTC example'),
+            title: Text('VideoChat Peer to Peer'),
           ),
           body: ListView.builder(
               shrinkWrap: true,
@@ -63,7 +63,7 @@ class _MyAppState extends State<MyApp> {
   _initData() async {
     _prefs = await SharedPreferences.getInstance();
     setState(() {
-      _server = _prefs.getString('server') ?? 'demo.cloudwebrtc.com';
+      _server = _prefs.getString('server') ?? 'localhost';
     });
   }
 
@@ -91,7 +91,7 @@ class _MyAppState extends State<MyApp> {
     showDemoDialog<DialogDemoAction>(
         context: context,
         child: AlertDialog(
-            title: const Text('Enter server address:'),
+            title: const Text('URL del servidor:'),
             content: TextField(
               onChanged: (String text) {
                 setState(() {
@@ -105,12 +105,12 @@ class _MyAppState extends State<MyApp> {
             ),
             actions: <Widget>[
               FlatButton(
-                  child: const Text('CANCEL'),
+                  child: const Text('Cancelar'),
                   onPressed: () {
                     Navigator.pop(context, DialogDemoAction.cancel);
                   }),
               FlatButton(
-                  child: const Text('CONNECT'),
+                  child: const Text('Conectar'),
                   onPressed: () {
                     Navigator.pop(context, DialogDemoAction.connect);
                   })
@@ -120,19 +120,19 @@ class _MyAppState extends State<MyApp> {
   _initItems() {
     items = <RouteItem>[
       RouteItem(
-          title: 'P2P Call Sample',
-          subtitle: 'P2P Call Sample.',
+          title: 'Videochat',
+          subtitle: 'Videochat peer-to-peer',
           push: (BuildContext context) {
             _datachannel = false;
             _showAddressDialog(context);
           }),
-      RouteItem(
-          title: 'Data Channel Sample',
-          subtitle: 'P2P Data Channel.',
-          push: (BuildContext context) {
-            _datachannel = true;
-            _showAddressDialog(context);
-          }),
+//      RouteItem(
+//          title: 'Data Channel Sample',
+//          subtitle: 'P2P Data Channel.',
+//          push: (BuildContext context) {
+//            _datachannel = true;
+//            _showAddressDialog(context);
+//          }),
     ];
   }
 }

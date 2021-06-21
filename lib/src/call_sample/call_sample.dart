@@ -138,12 +138,12 @@ class _CallSampleState extends State<CallSample> {
                   IconButton(
                     icon: const Icon(Icons.videocam),
                     onPressed: () => _invitePeer(context, peer['id'], false),
-                    tooltip: 'Video calling',
+                    tooltip: 'Video llamada',
                   ),
                   IconButton(
                     icon: const Icon(Icons.screen_share),
                     onPressed: () => _invitePeer(context, peer['id'], true),
-                    tooltip: 'Screen sharing',
+                    tooltip: 'Compartir pantalla',
                   )
                 ])),
         subtitle: Text('id: ' + peer['id']),
@@ -156,13 +156,8 @@ class _CallSampleState extends State<CallSample> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('P2P Call Sample'),
+        title: Text(''),
         actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.settings),
-            onPressed: null,
-            tooltip: 'setup',
-          ),
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
@@ -173,12 +168,12 @@ class _CallSampleState extends State<CallSample> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     FloatingActionButton(
-                      child: const Icon(Icons.switch_camera),
+                      child: const Icon(Icons.cameraswitch_outlined),
                       onPressed: _switchCamera,
                     ),
                     FloatingActionButton(
                       onPressed: _hangUp,
-                      tooltip: 'Hangup',
+                      tooltip: 'Colgar',
                       child: Icon(Icons.call_end),
                       backgroundColor: Colors.pink,
                     ),
