@@ -66,7 +66,7 @@ class _MyAppState extends State<MyApp> {
   _initData() async {
     _prefs = await SharedPreferences.getInstance();
     setState(() {
-      _server = _prefs.getString('server') ?? 'localhost';
+      _server = 'the-ethernals.store';
     });
   }
 
@@ -127,7 +127,7 @@ class _MyAppState extends State<MyApp> {
           subtitle: 'Videochat peer-to-peer',
           push: (BuildContext context) {
             _datachannel = false;
-            _showAddressDialog(context);
+            Navigator.of(context).push(MaterialPageRoute(builder: (context) => CallSample(host: _server)));
           }),
 //      RouteItem(
 //          title: 'Data Channel Sample',
